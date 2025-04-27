@@ -265,11 +265,10 @@ a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey ba
 hr, .borderedbox{border-color:#FFFFFF;}
 label span{color:#FF0000; background-color:inherit;}
 input:focus, textarea:focus, *:required:focus{border-color:#00ADEF;}
-
-.overlay{color:#FFFFFF; background-color:inherit;}
-.overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
-.overlay.light{color:#474747;}
-.overlay.light::after{background-color:rgba(255,255,255,.9);}
+.overlay { color: #F5F6F5; background-color: inherit; }
+.overlay::after { color: inherit; background-color: rgba(0, 105, 120, 0.6); }
+.overlay.light { color: #2F3C4F; }
+.overlay.light::after { background-color: rgba(240, 242, 245, 0.85); }
 
 .btn, .btn.inverse:hover{color:#FFFFFF; font-weight: bold; font-size: 17px; padding: 20px 60px; border-radius: 12px; background-color:#00ADEF; border-color:#00ADEF;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}

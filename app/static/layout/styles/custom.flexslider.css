@@ -1,105 +1,230 @@
 @charset "utf-8";
-/* Browser Resets
---------------------------------------------------------------------------------------------------------------- */
-.flex-container a:hover, .flex-slider a:hover { outline: none; }
-.slides, .slides > li, .flex-control-nav, .flex-direction-nav { margin: 0; padding: 0; list-style: none; }
-.flex-direction-nav a { font-family: "FontAwesome"; }
 
-/* Necessary Styles
---------------------------------------------------------------------------------------------------------------- */
-.flexslider { display: block; position: relative; margin: 0; padding: 0; }
-.flexslider .slides { display: block; width: 100%; overflow: hidden; }
-.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; } /* Hide slides before JS loads */
-.flexslider .slides a { text-decoration: none; outline: none; }
-.flexslider .slides a img { border: none; }
-.flexslider .slides img { display: block; max-width: 100%; margin: 0 auto; }
-.slides::before, .slides::after { display: table; content: ""; }
-.slides, .slides::after { clear: both; }
+/* ==========================================================================
+   Modern FlexSlider Styles
+   ========================================================================== */
 
-/* Modernized Theme
---------------------------------------------------------------------------------------------------------------- */
-.flex-viewport { max-height: 2000px; transition: all 0.5s ease; }
-.loading .flex-viewport { max-height: 400px; }
-.flexslider.carousel .slides li { margin-right: 30px; }
+/* Base Reset & Core Styles
+   --------------------------------------------------------------------------- */
+.flex-container a:hover,
+.flex-slider a:hover {
+  outline: none;
+}
 
-/* Direction Nav */
-.flex-direction-nav { }
+.slides,
+.slides > li,
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Main Slider Container
+   --------------------------------------------------------------------------- */
+.flexslider {
+  --slider-accent: #4f46e5;  /* Modern indigo */
+  --slider-bg: rgba(0, 0, 0, 0.7);
+  --slider-text: #ffffff;
+  --slider-border-radius: 12px;
+  
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--slider-border-radius);
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.flexslider .slides {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform 0.4s ease;
+}
+
+.flexslider .slides a {
+  text-decoration: none;
+  outline: none;
+}
+
+.flexslider .slides a img {
+  border: none;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.flexslider .slides img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Viewport & Loading States
+   --------------------------------------------------------------------------- */
+.flex-viewport {
+  max-height: 2000px;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.loading .flex-viewport {
+  max-height: 400px;
+}
+
+/* Navigation Arrows (Direction Nav)
+   --------------------------------------------------------------------------- */
+.flex-direction-nav {
+  position: static;
+}
+
 .flex-direction-nav a {
-    display: block;
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    margin: -25px 0 0 0;
-    z-index: 10;
-    overflow: hidden;
-    opacity: 0.7;
-    cursor: pointer;
-    text-decoration: none;
-    background: rgba(26, 42, 68, 0.8); /* Navy blue */
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0;
+  z-index: 10;
+  opacity: 0;
+  cursor: pointer;
+  text-decoration: none;
+  background: var(--slider-bg);
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateY(-50%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .flex-direction-nav a::before {
-    display: inline-block;
-    font-size: 24px;
-    line-height: 50px;
-    content: "\f053";
-    color: #ffffff;
+  display: inline-block;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 20px;
+  content: "\f053";
+  color: var(--slider-text);
 }
-.flex-direction-nav a.flex-next::before { content: "\f054"; }
-.flex-direction-nav .flex-prev { left: 20px; }
-.flex-direction-nav .flex-next { right: 20px; }
-.flexslider:hover .flex-prev, .flexslider:hover .flex-next { opacity: 1; }
-.flexslider:hover .flex-prev:hover, .flexslider:hover .flex-next:hover {
-    opacity: 1;
-    transform: scale(1.1);
+
+.flex-direction-nav a.flex-next::before {
+  content: "\f054";
 }
+
+.flex-direction-nav .flex-prev {
+  left: 25px;
+  transform: translateX(-10px) translateY(-50%);
+}
+
+.flex-direction-nav .flex-next {
+  right: 25px;
+  transform: translateX(10px) translateY(-50%);
+}
+
+.flexslider:hover .flex-direction-nav a {
+  opacity: 0.8;
+  transform: translateX(0) translateY(-50%);
+}
+
+.flexslider:hover .flex-direction-nav a:hover {
+  opacity: 1;
+  background: var(--slider-accent);
+  transform: translateX(0) translateY(-50%) scale(1.1);
+}
+
 .flex-direction-nav .flex-disabled {
-    visibility: hidden;
-    opacity: 0;
-    cursor: default;
-    z-index: -1;
+  visibility: hidden;
+  opacity: 0 !important;
+  cursor: default;
+  z-index: -1;
 }
 
-/* Control Nav */
+/* Pagination Controls (Control Nav)
+   --------------------------------------------------------------------------- */
 .flex-control-nav {
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  padding: 0;
+  z-index: 10;
 }
-.flex-control-nav li { display: inline-block; margin: 0 8px; }
+
+.flex-control-nav li {
+  margin: 0 6px;
+}
+
 .flex-control-paging li a {
-    display: block;
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-    text-indent: -9999px;
-    background: rgba(255, 255, 255, 0.3);
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    transition: background 0.3s ease;
+  display: block;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  text-indent: -9999px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+.flex-control-paging li a:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
 .flex-control-paging li a.flex-active {
-    background: #1a2a44; /* Navy blue */
-    border-color: #1a2a44;
-    cursor: default;
+  background: var(--slider-accent);
+  border-color: white;
+  transform: scale(1.2);
+  cursor: default;
 }
 
-/* Responsive
---------------------------------------------------------------------------------------------------------------- */
+/* Carousel Specific Styles
+   --------------------------------------------------------------------------- */
+.flexslider.carousel .slides li {
+  margin-right: 20px;
+}
+
+/* Responsive Adjustments
+   --------------------------------------------------------------------------- */
 @media screen and (max-width: 768px) {
-    .flex-direction-nav .flex-prev, .flex-direction-nav .flex-next { display: none; }
-    .flex-control-nav { bottom: 10px; }
+  .flex-direction-nav a {
+    width: 36px;
+    height: 36px;
+  margin: -18px 0 0;
+  opacity: 0.7;
+  }
+  
+  .flex-direction-nav a::before {
+    font-size: 16px;
+  }
+  
+  .flex-control-nav {
+    bottom: 15px;
+  }
+  
+  .flex-control-paging li a {
+    width: 10px;
+    height: 10px;
+  }
 }
 
-/* Colours
---------------------------------------------------------------------------------------------------------------- */
-.flex-direction-nav a { color: #ffffff; }
-.flex-control-paging li a { border-color: #ffffff; }
-.flex-control-paging li a.flex-active { background-color: #1a2a44; border-color: #1a2a44; }
+/* Dark Mode Support
+   --------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  .flexslider {
+    --slider-bg: rgba(0, 0, 0, 0.8);
+    --slider-text: #f3f4f6;
+  }
+  
+  .flex-control-paging li a {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
