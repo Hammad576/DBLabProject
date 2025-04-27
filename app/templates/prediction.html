@@ -1,105 +1,128 @@
-{% extends "header.html"%} {% block content %}
+{% extends "header.html" %}
+{% block content %}
 <style>
 .tab {
-        position: absolute;
-        left: 150px;
-    }
+    position: absolute;
+    left: 150px;
+}
+.node {
+    cursor: pointer;
+}
+.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+.found {
+    fill: #ff4136;
+    stroke: #ff4136;
+}
+.node text {
+    font: 10px sans-serif;
+    fill: #FFFFFF;
+}
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+.search {
+    width: 100%;
 }
 </style>
-<div class="bgded overlay" style="background-image:url({{url_for('static', filename='./images/img3.jpg')}});">
+<!-- Hero Section -->
+<div class="bgded overlay" style="background-image: url({{ url_for('static', filename='./images/img3.jpg') }}); background-color: #1A252F;">
     <div id="breadcrumb" class="hoc clear">
         <ul class="slides">
             <li>
                 <article1>
-                    <h1 class='heading1'>Results </h1>
+                    <h1 class="heading1" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Results</h1>
                 </article1>
             </li>
         </ul>
         <ul>
-            <li><a href="/questionForm">Predict</a></li>
-            <li><a href="/prediction">Results</a></li>
+            <li><a href="/questionForm" style="color: #FFFFFF; font-size: 1.2rem;">Predict</a></li>
+            <li><a href="/prediction" style="color: #FFFFFF; font-size: 1.2rem;">Results</a></li>
         </ul>
     </div>
 </div>
-<!-- under dev -->
-<div id="pageintro1" class="hoc clear">
+<!-- Prediction Section -->
+<div id="pageintro1" class="hoc clear" style="background-color: #1A252F;">
     <div class="flexslider basicslider">
         <ul class="slides">
             <li>
                 <article>
                     <h1><br><br></h1>
-                    <h1 class='heading' style="color:#353535">Our prediction is: <span style="color:blue">{{ pred_result }}</span></h1>
-                    <h1 style="color:#353535">{{ message }}</h1>
+                    <h1 class="heading" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Our prediction is: <span style="color: #FFFFFF; font-size: 1.2rem;">{{ pred_result }}</span></h1>
+                    <h1 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">{{ message }}</h1>
                     <h1><br></h1>
-                    <h1 style="color:#353535">Accuracy of the prediction: <strong>{{ student }}</strong></h1>
+                    <h1 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Accuracy of the prediction: <strong style="color: #FFFFFF; font-size: 1.2rem;">{{ student }}</strong></h1>
                     <h1><br></h1>
-                    <h1 style="color:#353535">Tip: You can improve prediction accuracy by entering all the fields.</h1>
+                    <h1 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Tip: You can improve prediction accuracy by entering all the fields.</h1>
                 </article>
             </li>
         </ul>
     </div>
 </div>
-<!-- table showing the list of options selected by the user -->
-<div class="wrapper row3">
+<!-- Feature Table -->
+<div class="wrapper row3" style="background-color: #1A252F;">
     <main class="hoc container clear">
         <table>
-
-            <body>
+            <tbody>
                 <tr>
-                    <td>{{ feature_1 }}:</td>
-                    <td>{{ value_1 }}</td>
-                    <td>{{ feature_2 }}:</td>
-                    <td align="center">{{ value_2 }}</td>
+                    <td style="color: #121212; font-size: 1.2rem;">{{ feature_1 }}:</td>
+                    <td style="color: #121212; font-size: 1.2rem;">{{ value_1 }}</td>
+                    <td style="color: #121212; font-size: 1.2rem;">{{ feature_2 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_2 }}</td>
                 </tr>
                 <tr>
-                    <td>{{ feature_3 }}:</td>
-                    <td align="center">{{ value_3 }}</td>
-                    <td>{{ feature_4 }}:</td>
-                    <td align="center">{{ value_4 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_3 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_3 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_4 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_4 }}</td>
                 </tr>
                 <tr>
-                    <td>{{ feature_5 }}:</td>
-                    <td align="center">{{ value_5 }}</td>
-                    <td>{{ feature_6 }}:</td>
-                    <td align="center">{{ value_6 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_5 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_5 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_6 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_6 }}</td>
                 </tr>
                 <tr>
-                    <td>{{ feature_7 }}:</td>
-                    <td align="center">{{ value_7 }}</td>
-                    <td>{{ feature_8 }}:</td>
-                    <td align="center">{{ value_8 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_7 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_7 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_8 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_8 }}</td>
                 </tr>
                 <tr>
-                    <td>{{ feature_9 }}:</td>
-                    <td align="center">{{ value_9 }}</td>
-                    <td>{{ feature_10 }}:</td>
-                    <td align="center">{{ value_10 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_9 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_9 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_10 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_10 }}</td>
                 </tr>
                 <tr>
-                    <td>{{ feature_11 }}:</td>
-                    <td align="center">{{ value_11 }}</td>
+                    <td style="color: #FFFFFF; font-size: 1.2rem;">{{ feature_11 }}:</td>
+                    <td align="center" style="color: #FFFFFF; font-size: 1.2rem;">{{ value_11 }}</td>
                     <td></td>
                     <td></td>
                 </tr>
-            </body>
+            </tbody>
         </table>
         <div align="center">
-            <footer><a class="btn" href="/questionForm">Retry</a></footer>
+            <footer><a class="btn" href="/questionForm" style="color: #FFFFFF; font-size: 1.2rem;">Retry</a></footer>
         </div>
     </main>
 </div>
-<!-- end of table -->
-<!-- most important feature chart -->
-<div class="wrapper row3">
+<!-- Chart Section -->
+<div class="wrapper row3" style="background-color: #1A252F;">
     <main class="hoc container clear">
         <div class="scrollable">
-            <h1 style="color:#353535" align="center">Here is a chart for some better perspective</h1>
+            <h1 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;" align="center">Here is a chart for some better perspective</h1>
             <table>
                 <tbody>
                     <td>
                         <!-- Plot 1 -->
                         <div align="center">
-                            <h6>Important Features for results predictions</h6>
+                            <h6 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Important Features for results predictions</h6>
                         </div>
                         <div align="center">
                             <div style="width: 650px; height: 650px">
@@ -112,59 +135,21 @@
         </div>
     </main>
 </div>
-<!-- end of most important feature chart -->
-
-<!-- JavaScript -->
+<!-- Decision Tree Visualization -->
+<h1 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;" align="center">Decision Tree Visualisation with User Selected Path</h1>
+<meta charset="utf-8">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="{{ url_for('static', filename='./javascript/viz.js') }}"></script>
 <script>
     treePlot()
 </script>
-
-<h1 style="color:#353535" align="center">Decision Tree Visualisation with User Selected Path</h1>
-
-<meta charset="utf-8">
-
-<style>
-    .node {
-        cursor: pointer;
-    }
-
-    .node circle {
-        fill: #fff;
-        stroke: steelblue;
-        stroke-width: 1.5px;
-    }
-
-    .found {
-        fill: #ff4136;
-        stroke: #ff4136;
-    }
-
-    .node text {
-        font: 10px sans-serif;
-    }
-
-    .link {
-        fill: none;
-        stroke: #ccc;
-        stroke-width: 1.5px;
-    }
-    /*Just to ensure the select2 box is "glued" to the top*/
-
-    .search {
-        width: 100%;
-    }
-</style>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2.min.css"></link>
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 <!-- This will be attached to select2, only static element on the page -->
 <div id="search"></div>
-
-<!-- Main -->
+<!-- Main D3 Script -->
 <script type="text/javascript">
     //basically a way to get the path to an object
     function searchTree(obj, search, path) {
@@ -186,12 +171,10 @@
             return false;
         }
     }
-
     function extract_select2_data(node, leaves, index) {
         if (node.children) {
             for (var i = 0; i < node.children.length; i++) {
                 index = extract_select2_data(node.children[i], leaves, index)[0];
-                //console.log(node.name);
             }
         } else {
             abc = '{{ path }}';
@@ -200,18 +183,14 @@
                     id: ++index,
                     text: node.name
                 });
-                //alert(node.name);
             }
         }
         return [index, leaves];
-        return [];
     }
-
     var div = d3.select("body")
         .append("div") // declare the tooltip div
         .attr("class", "tooltip")
         .style("opacity", 0);
-
     var margin = {
             top: 20,
             right: 120,
@@ -220,29 +199,22 @@
         },
         width = 1960 - margin.right - margin.left,
         height = 800 - margin.top - margin.bottom;
-
     var i = 0,
         duration = 750,
         root,
         select2_data;
-
     var diameter = 960;
-
     var tree = d3.layout.tree()
         .size([height, width]);
-
     var diagonal = d3.svg.diagonal()
         .projection(function(d) {
             return [d.y, d.x];
         });
-
     var svg = d3.select("body").append("svg")
         .attr("width", width + margin.right + margin.left)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    //recursively collapse children
     function collapse(d) {
         if (d.children) {
             d._children = d.children;
@@ -250,8 +222,6 @@
             d.children = null;
         }
     }
-
-    // Toggle children on click.
     function click(d) {
         if (d.children) {
             d._children = d.children;
@@ -262,7 +232,6 @@
         }
         update(d);
     }
-
     function openPaths(paths) {
         for (var i = 0; i < paths.length; i++) {
             if (paths[i].id !== "1") { //i.e. not root
@@ -275,10 +244,9 @@
             }
         }
     }
-
     d3.json("{{ url_for('static', filename='datasets/rules.json') }}", function(error, values) {
         root = values;
-        select2_data = extract_select2_data(values, [], 0)[1]; //I know, not the prettiest...
+        select2_data = extract_select2_data(values, [], 0)[1];
         root.x0 = height / 2;
         root.y0 = 0;
         root.children.forEach(collapse);
@@ -290,39 +258,28 @@
             alert('{{ path }}');
         }
     });
-
     d3.select(self.frameElement).style("height", "800px");
-
     function update(source) {
-        // Compute the new tree layout.
         var nodes = tree.nodes(root).reverse(),
             links = tree.links(nodes);
-
-        // Normalize for fixed-depth.
         nodes.forEach(function(d) {
             d.y = d.depth * 180;
         });
-
-        // Update the nodesâ€¦
         var node = svg.selectAll("g.node")
             .data(nodes, function(d) {
                 return d.id || (d.id = ++i);
             });
-
-        // Enter any new nodes at the parent's previous position.
         var nodeEnter = node.enter().append("g")
             .attr("class", "node")
             .attr("transform", function(d) {
                 return "translate(" + source.y0 + "," + source.x0 + ")";
             })
             .on("click", click);
-
         nodeEnter.append("circle")
             .attr("r", 1e-6)
             .style("fill", function(d) {
                 return d._children ? "lightsteelblue" : "#fff";
             });
-
         nodeEnter.append("text")
             .attr("x", function(d) {
                 return d.children || d._children ? -10 : 10;
@@ -335,14 +292,11 @@
                 return d.name;
             })
             .style("fill-opacity", 1e-6);
-
-        // Transition nodes to their new position.
         var nodeUpdate = node.transition()
             .duration(duration)
             .attr("transform", function(d) {
                 return "translate(" + d.y + "," + d.x + ")";
             });
-
         nodeUpdate.select("circle")
             .attr("r", 4.5)
             .style("fill", function(d) {
@@ -359,31 +313,22 @@
                     return "#ff4136"; //red
                 }
             });
-
         nodeUpdate.select("text")
             .style("fill-opacity", 1);
-
-        // Transition exiting nodes to the parent's new position.
         var nodeExit = node.exit().transition()
             .duration(duration)
             .attr("transform", function(d) {
                 return "translate(" + source.y + "," + source.x + ")";
             })
             .remove();
-
         nodeExit.select("circle")
             .attr("r", 1e-6);
-
         nodeExit.select("text")
             .style("fill-opacity", 1e-6);
-
-        // Update the linksâ€¦
         var link = svg.selectAll("path.link")
             .data(links, function(d) {
                 return d.target.id;
             });
-
-        // Enter any new links at the parent's previous position.
         link.enter().insert("path", "g")
             .attr("class", "link")
             .attr("d", function(d) {
@@ -396,8 +341,6 @@
                     target: o
                 });
             });
-
-        // Transition links to their new position.
         link.transition()
             .duration(duration)
             .attr("d", diagonal)
@@ -406,8 +349,6 @@
                     return "#ff4136";
                 }
             });
-
-        // Transition exiting nodes to the parent's new position.
         link.exit().transition()
             .duration(duration)
             .attr("d", function(d) {
@@ -421,14 +362,10 @@
                 });
             })
             .remove();
-
-        // Stash the old positions for transition.
         nodes.forEach(function(d) {
             d.x0 = d.x;
             d.y0 = d.y;
         });
     }
 </script>
-</body>
-
 {% endblock content %}

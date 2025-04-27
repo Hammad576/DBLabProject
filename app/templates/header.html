@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="{{url_for('static', filename='./layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all"> {% if title %}
+    <link href="{{ url_for('static', filename='./layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
+    {% if title %}
     <title>{{ title }} - Open University Learning Analytics</title>
     {% else %}
     <title>Open University Learning Analytics</title>
@@ -15,132 +15,125 @@
             font-size: 18px;
             margin-bottom: 15px;
         }
-
         .container .demo div {
             padding: 5px 0;
         }
-
         .container .demo div:nth-child(odd) {
-            color: #000000;
-            background: #FFFFFF;
+            color: #FFFFFF;
+            background: #1A252F;
         }
-
         .container .demo div:nth-child(even) {
             color: #FFFFFF;
-            background: #FFFFFF;
+            background: #1A252F;
         }
-
         @media screen and (max-width:900px) {
             .container .demo div {
                 margin-bottom: 0;
             }
         }
-
         .editorTextBox {
             height: 48px;
             width: 960px;
         }
     </style>
 </head>
-
 <body>
-    <div class="wrapper row1">
+    <div class="wrapper row1" style="background-color: #1A252F;">
         <header id="header" class="hoc clear">
             <div id="logo" class="fl_left">
-                <h1>
-                        <img class="logo1" src="{{ url_for('static', filename='./images/logo.png') }}" alt="logo"> <a href="/"> OULA</a>
-                    </h1>
+                <h1 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">
+                    <img class="logo1" src="{{ url_for('static', filename='./images/comsatslogo3.jpeg') }}" alt="logo">
+                    <a href="/" style="color: #FFFFFF; font-size: 1.2rem;">ComsatsAttock</a>
+                </h1>
             </div>
             <nav id="mainav" class="fl_right">
                 <ul class="clear">
-                    <li class="active"><a href="/home">Home</a></li>
-                    <li class="active"><a class="drop" href="#">Data</a>
+                    <li class="active"><a href="/home" style="color: #FFFFFF; font-size: 1.2rem;">Home</a></li>
+                    <li class="active"><a class="drop" href="#" style="color: #FFFFFF; font-size: 1.2rem;">Data</a>
                         <ul>
-                            <li class="active"><a href="/dataset">Dataset</a></li>
-                    </li>
-                    <li class="active"><a href="/machinelearning">Machine Learning</a></li>
-                    </ul>
-                    </li>
-                    <li class="active"><a class="drop" href="#">Predict</a>
-                        <ul>
-                            <li class="active"><a href="/questionForm">Predict Your Result</a></li>
-                            <li class="active"><a href="/real_time_statistics">Real Time Statistics</a></li>
-                            <li class="active"><a href="/tree">Explaining Results</a></li>
+                            <li class="active"><a href="/dataset" style="color: #FFFFFF; font-size: 1.2rem;">Dataset</a></li>
                         </ul>
-                        <li class="active"><a href="/about_us">About us</a></li>
+                    </li>
+                    <li class="active"><a href="/machinelearning" style="color: #FFFFFF; font-size: 1.2rem;">Machine Learning</a></li>
+                    <li class="active"><a class="drop" href="#" style="color: #FFFFFF; font-size: 1.2rem;">Predict</a>
+                        <ul>
+                            <li class="active"><a href="/questionForm" style="color: #FFFFFF; font-size: 1.2rem;">Predict Your Result</a></li>
+                            <li class="active"><a href="/real_time_statistics" style="color: #FFFFFF; font-size: 1.2rem;">Real Time Statistics</a></li>
+                            <li class="active"><a href="/tree" style="color: #FFFFFF; font-size: 1.2rem;">Explaining Results</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="/about_us" style="color: #FFFFFF; font-size: 1.2rem;">About us</a></li>
                 </ul>
             </nav>
         </header>
     </div>
-    {% block content %} {% endblock %}
-    <div class="wrapper row4">
+    {% block content %}
+    {% endblock %}
+    <div class="wrapper row4" style="background-color: #1A252F;">
         <footer id="footer" class="hoc clear">
             <div class="one_third first">
-                <h6 class="heading">Universität Duisburg-Essen</h6>
+                <h6 class="heading" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Universität Duisburg-Essen</h6>
                 <ul class="nospace btmspace-30 linklist contact">
-                    <li>
+                    <li style="color: #FFFFFF; font-size: 1.2rem;">
                         <i class="fa fa-map-marker"></i>
-                        <address>Forsthausweg 2, 47057 Duisburg</address>
+                        <address style="color: #FFFFFF; font-size: 1.2rem;">Forsthausweg 2, 47057 Duisburg</address>
                     </li>
-                    <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-                    <li><i class="fa fa-envelope-o"></i> info@oula.com</li>
+                    <li style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+                    <li style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-envelope-o"></i> info@oula.com</li>
                 </ul>
                 <ul class="faico clear">
-                    <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
+                    <li><a class="faicon-facebook" href="#" style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="faicon-twitter" href="#" style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="faicon-dribble" href="#" style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="faicon-linkedin" href="#" style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="faicon-google-plus" href="#" style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a class="faicon-vk" href="#" style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-vk"></i></a></li>
                 </ul>
             </div>
             <div class="one_third">
-                <h6 class="heading">Learning Analytics Project Timeline</h6>
+                <h6 class="heading" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Learning Analytics Project Timeline</h6>
                 <ul class="nospace linklist">
                     <li>
                         <article>
-                            <h2 class="nospace font-x1"><a href="#">Final Project submission</a></h2>
-                            <time class="font-xs block btmspace-10" datetime="2020-02-19">Wednesday, 19<sup>th</sup> February 2020</time>
-                            <p class="nospace">Deadline for the final project</p>
+                            <h2 class="nospace font-x1" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;"><a href="#" style="color: #FFFFFF; font-size: 1.2rem;">Final Project submission</a></h2>
+                            <time class="font-xs block btmspace-10" datetime="2020-02-19" style="color: #FFFFFF; font-size: 1.2rem;">Wednesday, 19<sup>th</sup> February 2020</time>
+                            <p class="nospace" style="color: #FFFFFF; font-size: 1.2rem;">Deadline for the final project</p>
                         </article>
                     </li>
                     <li>
                         <article>
-                            <h2 class="nospace font-x1"><a href="#">Final Project Presentation</a></h2>
-                            <time class="font-xs block btmspace-10" datetime="2020-01-29">Wednesday, 29<sup>th</sup> January 2020</time>
-                            <p class="nospace">The final presentations (25 min presentation + 5 min discussion) will be on January 29th and 30th, 2020
-                            </p>
+                            <h2 class="nospace font-x1" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;"><a href="#" style="color: #FFFFFF; font-size: 1.2rem;">Final Project Presentation</a></h2>
+                            <time class="font-xs block btmspace-10" datetime="2020-01-29" style="color: #FFFFFF; font-size: 1.2rem;">Wednesday, 29<sup>th</sup> January 2020</time>
+                            <p class="nospace" style="color: #FFFFFF; font-size: 1.2rem;">The final presentations (25 min presentation + 5 min discussion) will be on January 29th and 30th, 2020</p>
                         </article>
                     </li>
                 </ul>
             </div>
             <div class="one_third">
-                <h6 class="heading">Contact us</h6>
-                <p class="nospace btmspace-30">If you have any questions, don't hesitate to ask us.</p>
+                <h6 class="heading" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Contact us</h6>
+                <p class="nospace btmspace-30" style="color: #FFFFFF; font-size: 1.2rem;">If you have any questions, don't hesitate to ask us.</p>
                 <form method="post" action="#">
                     <fieldset>
-                        <legend>Contact Us:</legend>
-                        <input class="btmspace-15" type="text" value="" placeholder="Email">
-                        <input class="btmspace-15" type="text" value="" placeholder="Message">
-                        <button type="submit" value="submit">Submit</button>
+                        <legend style="color: #FFFFFF; font-size: 1.2rem;">Contact Us:</legend>
+                        <input class="btmspace-15" type="text" value="" placeholder="Email" style="color: #FFFFFF; font-size: 1.2rem;">
+                        <input class="btmspace-15" type="text" value="" placeholder="Message" style="color: #FFFFFF; font-size: 1.2rem;">
+                        <button type="submit" value="submit" style="color: #FFFFFF; font-size: 1.2rem;">Submit</button>
                     </fieldset>
                 </form>
             </div>
         </footer>
     </div>
-    <div class="wrapper row5">
+    <div class="wrapper row5" style="background-color: #1A252F;">
         <div id="copyright" class="hoc clear">
-            <p class="fl_left"><a href="https://www.uni-due.de/soco/" target="_blank">Learning Analytics</a> - Universität Duisburg-Essen</p>
-            <p class="fl_right">Group 1: Data Titans</a>
-            </p>
+            <p class="fl_left" style="color: #FFFFFF; font-size: 1.2rem;"><a href="https://www.uni-due.de/soco/" target="_blank" style="color: #FFFFFF; font-size: 1.2rem;">Learning Analytics</a> - Universität Duisburg-Essen</p>
+            <p class="fl_right" style="color: #FFFFFF; font-size: 1.2rem;">Group 1: Data Titans</p>
         </div>
     </div>
-    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+    <a id="backtotop" href="#top" style="color: #FFFFFF; font-size: 1.2rem;"><i class="fa fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->
     <script type="text/javascript" src="{{ url_for('static', filename='./layout/scripts/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='./layout/scripts/jquery.backtotop.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='./layout/scripts/jquery.mobilemenu.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='./layout/scripts/jquery.flexslider-min.js') }}"></script>
 </body>
-
 </html>

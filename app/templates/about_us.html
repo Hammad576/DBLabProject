@@ -1,66 +1,62 @@
 {% extends "header.html" %}
 {% block content %}
 <!-- Hero Section -->
-<div class="bgded overlay" style="background-image: url({{ url_for('static', filename='images/comsats-bg.jpg') }});">
+<div class="bgded overlay" style="background-image: url({{ url_for('static', filename='images/comsats-bg.jpg') }}); background-color: #1A252F;">
     <div id="breadcrumb" class="hoc clear">
-        <h1 class="main-heading">About Our Project</h1>
+        <h1 class="main-heading" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">About Our Project</h1>
         <ul class="breadcrumb-nav">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about_us">About Us</a></li>
+            <li><a href="/home" style="color: #FFFFFF; font-size: 1.2rem;">Home</a></li>
+            <li><a href="/about_us" style="color: #FFFFFF; font-size: 1.2rem;">About Us</a></li>
         </ul>
     </div>
 </div>
 
 <!-- Main Content -->
-<div class="wrapper row3">
+<div class="wrapper row3" style="background-color: #1A252F;">
     <main class="hoc container clear">
         <div class="content">
-            <h2 class="section-heading" align="center">The Data Pioneers</h2>
-            <p class="intro-text">We are a team of BCS5 students from the Computer Science Department at COMSATS University Islamabad, Attock Campus. This project is part of the lab component for the Database System course.</p>
+            <h2 class="section-heading" align="center" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">The Data Pioneers</h2>
+            <p class="intro-text" style="color: #FFFFFF; font-size: 1.2rem;">We are a team of BCS5 students from the Computer Science Department at COMSATS University Islamabad, Attock Campus. This project is part of the lab component for the Database System course.</p>
             
             <!-- Course Details -->
             <div class="info-card">
-                <h3 class="card-title">Course Overview</h3>
-                <p class="card-text">The Database System course (lab part) is supervised by:</p>
+                <h3 class="card-title" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Course Overview</h3>
+                <p class="card-text" style="color: #FFFFFF; font-size: 1.2rem;">The Database System course (lab part) is supervised by:</p>
                 <ul class="info-list">
-                    <li>Dr. Shehzad Rizwan</li>
-                    <li>Dr. Arham Muslim</li>
+                    <li style="color: #FFFFFF; font-size: 1.2rem;">Dr. Shehzad Rizwan</li>
+                    <li style="color: #FFFFFF; font-size: 1.2rem;">Dr. Arham Muslim</li>
                 </ul>
             </div>
 
             <!-- Team Members -->
             <div class="info-card">
-                <h3 class="card-title">Project Team</h3>
+                <h3 class="card-title" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">Project Team</h3>
                 <div class="team-grid clear">
                     <div class="team-card">
-                        <p class="team-name">Hammad Khan</p>
-                        <p class="team-role">BCS5 Student</p>
+                        <p class="team-name" style="color: #FFFFFF; font-size: 1.2rem;">Hammad Khan</p>
+                        <p class="team-role" style="color: #FFFFFF; font-size: 1.2rem;">BCS5 Student</p>
                     </div>
                     <div class="team-card">
-                        <p class="team-name">Muhammad Sadiq</p>
-                        <p class="team-role">BCS5 Student</p>
+                        <p class="team-name" style="color: #FFFFFF; font-size: 1.2rem;">Muhammad Sadiq</p>
+                        <p class="team-role" style="color: #FFFFFF; font-size: 1.2rem;">BCS5 Student</p>
                     </div>
                     <div class="team-card">
-                        <p class="team-name">Anfal Siddiqui</p>
-                        <p class="team-role">BCS5 Student</p>
+                        <p class="team-name" style="color: #FFFFFF; font-size: 1.2rem;">Anfal Siddiqui</p>
+                        <p class="team-role" style="color: #FFFFFF; font-size: 1.2rem;">BCS5 Student</p>
                     </div>
                     <div class="team-card">
-                        <p class="team-name">Hammad Nawaz</p>
-                        <p class="team-role">BCS5 Student</p>
+                        <p class="team-name" style="color: #FFFFFF; font-size: 1.2rem;">Hammad Nawaz</p>
+                        <p class="team-role" style="color: #FFFFFF; font-size: 1.2rem;">BCS5 Student</p>
                     </div>
                 </div>
             </div>
 
             <!-- University Links -->
             <div class="logo-container clear">
-                <div class="logo-left">
-                    <a href="https://www.comsats.edu.pk/" target="_blank">
-                        <img class="logo-img" src="{{ url_for('static', filename='images/comsats-logo.png') }}" alt="COMSATS University Logo">
-                    </a>
-                </div>
+                 
                 <div class="logo-right">
                     <a href="https://attock.comsats.edu.pk/" target="_blank">
-                        <img class="logo-img" src="{{ url_for('static', filename='images/attock-campus-logo.png') }}" alt="COMSATS Attock Campus Logo">
+                        <img class="logo-img" src="{{ url_for('static', filename='images/comsatslogo3.jpeg') }}" alt="COMSATS Attock Campus Logo">
                     </a>
                 </div>
             </div>
