@@ -304,13 +304,39 @@ a > .icon:hover, .services article:hover .icon{color:#FFFFFF; background-color:#
 
 
 /* Footer */
-#footer .heading{color:#FFFFFF;}
-#footer hr, #footer .borderedbox, #footer .linklist li{border-color:rgba(255,255,255,.1);}
+#footer .heading {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+#footer hr, #footer .borderedbox, #footer .linklist li {
+    border-color: rgba(255, 255, 255, 0.15);
+}
 
-#footer input, #footer button{border-color:transparent;}
-#footer input{color:#FFFFFF; background-color:#353535;}
-#footer input:focus{border-color:#00ADEF;}
-#footer button{color:#FFFFFF; background-color:#00ADEF;}
+#footer input, #footer button {
+    border-radius: 6px;
+}
+#footer input {
+    background-color: #2a3b5a;
+    color: #e4e7eb;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+}
+
+#footer input:focus {
+    border-color: #f4c430;
+    outline: none;
+}
+
+#footer button {
+    background-color: #f4c430;
+    color: #1a2a44;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 600;
+}
 
 
 /* Navigation */
